@@ -2,10 +2,14 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const Counter = ({counter, add}) => {
+const Counter = ({counter, add, remove }) => {
 
   const handleAdd = () => {
     add(counter);
+  }
+
+  const handleRemove = () => {
+    remove(counter);
   }
 
   return (
@@ -15,7 +19,8 @@ const Counter = ({counter, add}) => {
         <Card.Text>
           {counter.count}
         </Card.Text>
-       <Button variant="primary" onClick={handleAdd}>+</Button>
+       <Button variant="primary" onClick={handleAdd} style={{ margin: '.5rem', }}>+</Button>
+       <Button variant="danger" onClick={handleRemove} style={{ margin: '.5rem', }}>x</Button>
       </Card.Body>
     </Card>
   );

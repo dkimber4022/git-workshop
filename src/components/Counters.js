@@ -25,6 +25,13 @@ const Counters = () => {
     setCounters(tempCounters);
   }
 
+  const remove = (counter) => {
+    const tempCounters = [...counters];
+    const counterIndex = tempCounters.indexOf(counter);
+    tempCounters.splice(counterIndex, 1);
+    setCounters(tempCounters);
+  }
+
   return (
     <Container>
       <Row>
@@ -34,6 +41,7 @@ const Counters = () => {
           key={ counter.name }
           counter={ counter }
           add={ setCount }
+          remove={ remove }
           />
         </Col>
       ))}
