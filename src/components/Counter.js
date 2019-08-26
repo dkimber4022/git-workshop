@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const Counter = () => {
-  const [name, setName] = useState("Example Counter");
-  const [count, setCount] = useState(0);
+const Counter = ({counter, add}) => {
 
-  const addCount = () => {
-    setCount(count + 1);
+  const handleAdd = () => {
+    add(counter);
   }
 
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem',  margin: '2rem', }}>
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
+        <Card.Title>{counter.name}</Card.Title>
         <Card.Text>
-          {count}
+          {counter.count}
         </Card.Text>
-        <Button variant="primary" onClick={addCount}>+</Button>
+       <Button variant="primary" onClick={handleAdd}>+</Button>
       </Card.Body>
     </Card>
   );
